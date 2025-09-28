@@ -1,0 +1,41 @@
+
+# Large spacer to push time toward center, accounting for workspace area
+# Try reducing the left spacer and increasing the right spacer
+# [spacer_left]
+# command=printf "%0s" ""
+# interval=once
+# separator=false
+# color=#00000000
+
+[time]
+command=date '+%a %d %b %H:%M'
+interval=1
+separator=false
+
+[spacer_right]
+command=printf "%48s" ""
+interval=once
+separator=false
+color=#00000000
+
+# Your other blocks...
+
+[cpu]
+label=CPU:
+command=echo $(grep 'cpu ' /proc/stat | awk '{usage=($2+$4)*100/($2+$4+$5)} END {print int(usage)"%"}')
+interval=1
+
+[memory]
+label=MEM:
+command=free -h | awk '/Mem:/ {print $3}'
+interval=5
+
+[volume]
+label=VOL:
+command=amixer get Master | grep "Front Left:" | sed 's/.*\[\([0-9]\+\)%\].*/\1/'
+interval=1
+signal=10
+
+[battery]
+command=acpi -b | awk '{gsub(/,/, ""); print ($3=="Discharging"? "🔋" : "⚡") " " $4}'
+interval=5

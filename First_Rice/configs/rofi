@@ -1,0 +1,36 @@
+
+#!/bin/bash
+
+# A simple script to show a power menu with confirmation
+# Requires rofi
+
+# A list of choices for the first menu
+main_options="Shutdown\nRestart\nSuspend\nLogout"
+
+# Get the user's choice from the first menu
+choice=$(echo -e "$main_options" | rofi -dmenu -p "Power options:" -theme-str 'listview { lines: 4; }')
+
+case "$choice" in
+    "Shutdown")
+        # Ask for confirmation before shutting down
+        confirmation=$(echo -e "Yes\nNo" | rofi -dmenu -p "Are you sure you want to SHUTDOWN?" -theme-str 'listview { lines: 2; }')
+        if [ "$confirmation" = "Yes" ]; then
+            systemctl poweroff
+        fi
+        ;;
+    "Restart")
+        # Ask for confirmation before restarting
+        confirmation=$(echo -e "Yes\nNo" | rofi -dmenu -p "Are you sure you want to RESTART?" -theme-str 'listview { lines: 2; }')
+        if [ "$confirmation" = "Yes" ]; then
+            systemctl reboot
+        fi
+        ;;
+    "Suspend")
+        # No confirmation needed for suspend
+        systemctl suspend
+        ;;
+    "Logout")
+        # This is a bit safer, so no confirmation needed
+        i3-msg exit
+        ;;
+esac
