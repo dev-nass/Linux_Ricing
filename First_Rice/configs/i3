@@ -248,3 +248,18 @@ bindsym $mod+Shift+s exec --no-startup-id flameshot gui
 # fix the touchpad (natural scroll & click)
 exec --no-startup-id xinput set-prop "ETD2204:00 04F3:31DC Touchpad" "libinput Natural Scrolling Enabled" 0
 exec --no-startup-id xinput set-prop "ETD2204:00 04F3:31DC Touchpad" "libinput Tapping Enabled" 1
+
+
+# CUSTOM KEYBINDS:
+
+# Launch XAMPP Manager with Mod+x, requiring a terminal for sudo password
+bindsym $mod+x exec i3-sensible-terminal -e "sudo /opt/lampp/manager-linux-x64.run"
+
+# Launch Nemo with Super+e
+bindsym $mod+b exec --no-startup-id nemo
+
+# Launch VS Code with Super+c
+bindsym $mod+c exec --no-startup-id code
+
+# Launch Brave Browser with Super+i
+bindsym $mod+i exec --no-startup-id brave-browser
