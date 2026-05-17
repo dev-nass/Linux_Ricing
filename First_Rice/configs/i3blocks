@@ -32,7 +32,7 @@ interval=5
 
 [volume]
 label=VOL:
-command=amixer get Master | grep "Front Left:" | sed 's/.*\[\([0-9]\+\)%\].*/\1/'
+command=VOL=$(pactl get-sink-volume @DEFAULT_SINK@ | grep -oP '\d+(?=%)' | head -1); [ "$VOL" -gt 150 ] && pactl set-sink-volume @DEFAULT_SINK@ 150% && VOL=150; echo "$VOL"
 interval=1
 signal=10
 
