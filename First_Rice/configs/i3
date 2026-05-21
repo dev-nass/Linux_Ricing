@@ -252,6 +252,9 @@ bindsym $mod+Shift+s exec --no-startup-id flameshot gui
 # fix the touchpad (natural scroll & click)
 exec --no-startup-id xinput set-prop "ETD2204:00 04F3:31DC Touchpad" "libinput Natural Scrolling Enabled" 1
 exec --no-startup-id xinput set-prop "ETD2204:00 04F3:31DC Touchpad" "libinput Tapping Enabled" 1
+exec --no-startup-id xinput set-prop "ETD2204:00 04F3:31DC Touchpad" "libinput Tapping Drag Lock Enabled" 1
+exec --no-startup-id xinput set-prop "ETD2204:00 04F3:31DC Touchpad" "libinput Accel Speed" 0.5
+exec --no-startup-id xinput set-prop "ETD2204:00 04F3:31DC Touchpad" "libinput Accel Profile Enabled" 1 0
 
 # CUSTOM KEYBINDS:
 
