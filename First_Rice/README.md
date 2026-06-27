@@ -1,7 +1,5 @@
 # Context of Everything
 
-( Last updated: September 28, 2025)
-
 Note that some of the configuration here are added on `i3` config so they autorun alongside i3 each time we boot.
 
 | Software   | Config Path                                                          | Description                                                                    |

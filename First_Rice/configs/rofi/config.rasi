@@ -1,4 +1,8 @@
 
+/*
+ * Description: Responsible for the pink style of ROFI
+ * */
+
 * {
     /* Main colors */
     bg-color: #1a1a1a;

@@ -1,6 +1,6 @@
-
 #!/bin/bash
 # run `chmod +x ~/.config/i3/battery_dim.sh`
+# Description: Dims the brightness when it drops to 20%
 
 # Set the threshold and the target brightness (0-100)
 THRESHOLD=20
@@ -21,3 +21,4 @@ while true; do
     # Check every 60 seconds
     sleep 60
 done
+
